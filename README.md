@@ -21,7 +21,10 @@ A starter kit for beginner learns with Bloc pattern, RxDart, sqflite, Fluro and 
     >Preference > Plugins > Browse repositories > Type ‘Flutter i18n’  > Install > Restart Android Studio
 
 ## Config
-1. Add a run config to run demo
+1. Click 'Edit Configuration'
+2. Create different run configs
+
+![Edit Config](https://i.ibb.co/DzM0SVy/Screen-Shot-2019-01-12-at-12-22-41-AM.png)
 
 ![Config](https://i.ibb.co/sgq2mTL/Screen-Shot-2019-01-11-at-6-13-32-PM.png)
 
@@ -41,9 +44,12 @@ Generate json serialize adn deserialize functions
 - [Flutter for web developers](https://flutter.io/docs/get-started/flutter-for/web-devs)
 - [Flutter for Xamarin.Forms developers](https://flutter.io/docs/get-started/flutter-for/xamarin-forms-devs)
 
-#### Learn Widget
+#### Learn Widget & Layout
+- [Building Layouts](https://flutter.io/docs/development/ui/layout)
+- [Widget catalog](https://flutter.io/docs/development/ui/widgets)
 - [Series of flutter widget of the week](https://www.youtube.com/playlist?list=PLOU2XLYxmsIL0pH0zWe_ZOHgGhZ7UasUE)
 - [Series of Flutter Widgets 101](https://www.youtube.com/playlist?list=PLOU2XLYxmsIJyiwUPCou_OVTpRIn_8UMd)
+
 
 #### Bloc Pattern
 - [Architect your Flutter project using BLOC pattern](https://medium.com/flutterpub/architecting-your-flutter-project-bd04e144a8f1)
