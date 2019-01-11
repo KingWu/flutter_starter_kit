@@ -1,0 +1,8 @@
+{
+  "title": "Hello world App",
+  "hello": "Hello",
+  "homeSearchHint": "搜索 ...",
+  "homeRecommend": "推介",
+  "dialogLoading": "載入中 ...",
+  "detailRate": "評論"
+}
