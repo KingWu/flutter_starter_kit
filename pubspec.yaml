@@ -1,5 +1,10 @@
 name: flutter_starter_kit
 description: Flutter Starter Kit with Bloc pattern and Rxdart
+authors:
+ - King Wu <king.wuff101@gmail.com>
+ - Simon Lightfoot <simon@devangels.london>
+homepage: https://github.com/KingWu/flutter_starter_kit
+maintainer: King Wu (@kw101)
 
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43
