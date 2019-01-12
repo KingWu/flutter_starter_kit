@@ -61,6 +61,8 @@
 		97C146FD1CF9000F007C117D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		97C147001CF9000F007C117D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		97C147021CF9000F007C117D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FEC6451D21E984D400024C55 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
+		FEC6451E21E984D400024C55 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -317,6 +319,7 @@
 				0F6C5F1921E4DCFA00DF5B0B /* zh-Hant */,
 				0F6C5F1B21E4DD8100DF5B0B /* zh */,
 				0F6C5F1D21E4DE5C00DF5B0B /* de */,
+				FEC6451D21E984D400024C55 /* ja */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -328,6 +331,7 @@
 				0F6C5F1A21E4DCFA00DF5B0B /* zh-Hant */,
 				0F6C5F1C21E4DD8100DF5B0B /* zh */,
 				0F6C5F1E21E4DE5C00DF5B0B /* de */,
+				FEC6451E21E984D400024C55 /* ja */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
