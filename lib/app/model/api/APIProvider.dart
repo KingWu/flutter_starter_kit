@@ -3,11 +3,14 @@ import 'dart:convert';
 import 'package:dio/dio.dart';
 import 'package:flutter_starter_kit/app/model/pojo/response/LookupResponse.dart';
 import 'package:flutter_starter_kit/app/model/pojo/response/TopAppResponse.dart';
+import 'package:flutter_starter_kit/config/Env.dart';
 import 'package:flutter_starter_kit/utility/http/HttpException.dart';
+import 'package:flutter_starter_kit/utility/log/DioLogger.dart';
 import 'package:flutter_starter_kit/utility/log/Log.dart';
 import 'package:sprintf/sprintf.dart';
 
 class APIProvider{
+  static const String TAG = 'APIProvider';
 
   static const String _baseUrl = 'https://itunes.apple.com/hk';
   static const String _TOP_FREE_APP_API = '/rss/topfreeapplications/limit=%d/json';
@@ -21,6 +24,25 @@ class APIProvider{
       ..baseUrl = APIProvider._baseUrl;
 
     _dio = Dio(dioOptions);
+
+    if(EnvType.DEVELOPMENT == Env.value.environmentType || EnvType.STAGING == Env.value.environmentType){
+      _dio.interceptor.request.onSend = (Options options) async{
+        DioLogger.onSend(TAG, options);
+        return options;
+      };
+
+      _dio.interceptor.response.onSuccess=(Response response){
+        DioLogger.onSuccess(TAG, response);
+        return response;
+      };
+
+      _dio.interceptor.response.onError = (DioError error){
+        DioLogger.onError(TAG, error);
+        return error;
+      };
+    }
+
+
   }
 
   Future<TopAppResponse> getTopFreeApp(int limit) async{
