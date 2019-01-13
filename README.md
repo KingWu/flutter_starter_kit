@@ -2,7 +2,7 @@
 
 A starter kit for beginner learns with Bloc pattern, RxDart, sqflite, Fluro and Dio to architect a flutter project. This starter kit build an App Store app as a example
 
-![App Store Flutter Demo](https://i.ibb.co/vmCkHM1/ezgif-1-f762277ebc31.gif)
+![App Store Flutter Demo](https://i.ibb.co/FsyWhpY/ezgif-3-5dbb34baf658.gif)
 
 ## Feature
 - Bloc Pattern
@@ -11,10 +11,11 @@ A starter kit for beginner learns with Bloc pattern, RxDart, sqflite, Fluro and 
 - Restful api call by using [Dio](https://github.com/flutterchina/dio)
 - Loading Network Image
 - Localization by using Flutter i18n plugin
-- Environment Config based on different project flavour (Development, Staging and Production)
+- Environment Variable & Project Config (Like App Name, Bundle Id) based on different project flavour (Development, Staging & Production)
 - Build pojo by using json_serializable
 - Update each list item instead of re-rendering whole list view when data set has changed on a list item
 - Hero animation
+- Show empty View when the list view is empty
 
 ## Install
 
@@ -22,13 +23,15 @@ A starter kit for beginner learns with Bloc pattern, RxDart, sqflite, Fluro and 
 2. Install Flutter i18n plugin into Android Studio
     >Preference > Plugins > Browse repositories > Type ‘Flutter i18n’  > Install > Restart Android Studio
 
-## Config
+## Run Config
 1. Click 'Edit Configuration'
-2. Create different run configs
+2. Create different run configs for flavours
 
-![Edit Config](https://i.ibb.co/DzM0SVy/Screen-Shot-2019-01-12-at-12-22-41-AM.png)
+![Edit Config](https://i.ibb.co/sbkgnmN/Screen-Shot-2019-01-13-at-7-28-44-PM.png)
 
-![Config](https://i.ibb.co/sgq2mTL/Screen-Shot-2019-01-11-at-6-13-32-PM.png)
+![Config](https://i.ibb.co/yh7Dw5k/Screen-Shot-2019-01-13-at-7-30-57-PM.png)
+
+![Flavour](https://i.ibb.co/hCP2QJ1/Screen-Shot-2019-01-13-at-7-40-16-PM.png)
 
 
 ## Useful Command
@@ -65,3 +68,4 @@ Generate json serialize and deserialize functions
 
 #### Flavouring
 - [Flavoring Flutter](https://medium.com/@salvatoregiordanoo/flavoring-flutter-392aaa875f36)
+- [Creating flavors of a Flutter app (Flutter & Android setup)](http://cogitas.net/creating-flavors-of-a-flutter-app/)
