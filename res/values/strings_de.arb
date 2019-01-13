@@ -4,6 +4,6 @@
   "homeSearchHint": "Suche ...",
   "homeRecommend": "Empfehlen",
   "dialogLoading": "Wird geladen ...",
-  "detailRate": "Bemerkungen"
-
+  "detailRate": "Bemerkungen",
+  "homeEmptyList": "Keine Ergebnisse"
 }

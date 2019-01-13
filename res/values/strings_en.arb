@@ -4,6 +4,6 @@
   "homeSearchHint": "Search ...",
   "homeRecommend": "Recommend",
   "dialogLoading": "Loading ...",
-  "detailRate": "Comments"
-
+  "detailRate": "Comments",
+  "homeEmptyList": "No results"
 }

@@ -114,50 +114,70 @@ class _HomePageState extends State<HomePage> {
     return StreamBuilder(
       stream: bloc.feedList,
       builder: (context, snapshot) {
-        List<HomeListItem> feedList = snapshot.data;
-        return ListView.builder(
-            key: listViewKey,
-            scrollDirection: Axis.vertical,
-            itemCount: null != feedList ? feedList.length : 0,
-            itemBuilder: (context, index) {
-//              Log.info('index : $index');
-              HomeListItem listItem = feedList[index];
-
-              if(null == _keys[listItem.getId()]){
-                _keys[listItem.getId()] = ValueKey(listItem.getId());
-              }
-
-              var key = _keys[listItem.getId()];
 
 
-              if(HomeListType.TYPE_FEATURE == listItem.type){
-                return Container(
-                  key: key,
-                  child: buildFeatureListItem(listItem),
-                );
-              }
+        switch(snapshot.connectionState){
+          case ConnectionState.none:
+          case ConnectionState.waiting:{
+            return Center(
+              child: Text(S.of(context).dialogLoading)
+            );
+          }
+          case ConnectionState.done:
+          case ConnectionState.active:{
 
-              bool isFeatureListItemExist = HomeListType.TYPE_FEATURE == feedList[0].type;
-
-              return StreamListItem<HomeListItem, num>(
-                  key: key,
-                  initialData: listItem,
-                  stream: bloc.noticeItemUpdate,
-                  comparator: (HomeListItem listItem, num appId){
-                    if(HomeListType.TYPE_TOP_APP == listItem.type){
-                      TopAppListItem topAppListItem = listItem;
-                      return topAppListItem.entry.trackId == appId;
-                    }
-
-                    return false;
-                  },
-                  builder: (BuildContext context, HomeListItem listItem){
-//                    Log.info('Updated : $index');
-                    return buildTopAppListItem(listItem, index, isFeatureListItemExist);
-                  }
+            List<HomeListItem> feedList = snapshot.data;
+            if(0 == feedList.length){
+              return Center(
+                child: Text(S.of(context).homeEmptyList)
               );
             }
-        );
+
+            return ListView.builder(
+                key: listViewKey,
+                scrollDirection: Axis.vertical,
+                itemCount: null != feedList ? feedList.length : 0,
+                itemBuilder: (context, index) {
+//              Log.info('index : $index');
+                  HomeListItem listItem = feedList[index];
+
+                  if(null == _keys[listItem.getId()]){
+                    _keys[listItem.getId()] = ValueKey(listItem.getId());
+                  }
+
+                  var key = _keys[listItem.getId()];
+
+
+                  if(HomeListType.TYPE_FEATURE == listItem.type){
+                    return Container(
+                      key: key,
+                      child: buildFeatureListItem(listItem),
+                    );
+                  }
+
+                  bool isFeatureListItemExist = HomeListType.TYPE_FEATURE == feedList[0].type;
+
+                  return StreamListItem<HomeListItem, num>(
+                      key: key,
+                      initialData: listItem,
+                      stream: bloc.noticeItemUpdate,
+                      comparator: (HomeListItem listItem, num appId){
+                        if(HomeListType.TYPE_TOP_APP == listItem.type){
+                          TopAppListItem topAppListItem = listItem;
+                          return topAppListItem.entry.trackId == appId;
+                        }
+
+                        return false;
+                      },
+                      builder: (BuildContext context, HomeListItem listItem){
+//                    Log.info('Updated : $index');
+                        return buildTopAppListItem(listItem, index, isFeatureListItemExist);
+                      }
+                  );
+                }
+            );
+          }
+        }
       }
     );
   }

@@ -22,6 +22,7 @@ class S implements WidgetsLocalizations {
   String get detailRate => "Comments";
   String get dialogLoading => "Loading ...";
   String get hello => "Hello";
+  String get homeEmptyList => "No results";
   String get homeRecommend => "Recommend";
   String get homeSearchHint => "Search ...";
   String get title => "Hello world App";
@@ -37,6 +38,8 @@ class $de extends S {
   String get homeSearchHint => "Suche ...";
   @override
   String get dialogLoading => "Wird geladen ...";
+  @override
+  String get homeEmptyList => "Keine Ergebnisse";
   @override
   String get hello => "Hello De";
   @override
@@ -58,6 +61,8 @@ class $zh_TW extends S {
   @override
   String get dialogLoading => "載入中 ...";
   @override
+  String get homeEmptyList => "沒有結果";
+  @override
   String get hello => "Hello";
   @override
   String get detailRate => "評論";
@@ -77,6 +82,8 @@ class $ja extends S {
   String get homeSearchHint => "検索 ...";
   @override
   String get dialogLoading => "読み込み中 ...";
+  @override
+  String get homeEmptyList => "結果なし";
   @override
   String get hello => "Hello";
   @override
