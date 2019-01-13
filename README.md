@@ -29,7 +29,7 @@ A starter kit for beginner learns with Bloc pattern, RxDart, sqflite, Fluro and 
 
 ![Edit Config](https://i.ibb.co/sbkgnmN/Screen-Shot-2019-01-13-at-7-28-44-PM.png)
 
-![Config](https://i.ibb.co/bsRTgcF/Screen-Shot-2019-01-13-at-7-52-38-PM.png)
+![Config](https://i.ibb.co/tqPgMVz/Screen-Shot-2019-01-13-at-7-52-38-PM.png)
 
 ![Flavour](https://i.ibb.co/hCP2QJ1/Screen-Shot-2019-01-13-at-7-40-16-PM.png)
 
