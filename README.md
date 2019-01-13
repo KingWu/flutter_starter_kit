@@ -2,7 +2,7 @@
 
 A starter kit for beginner learns with Bloc pattern, RxDart, sqflite, Fluro and Dio to architect a flutter project. This starter kit build an App Store app as a example
 
-![App Store Flutter Demo](https://i.ibb.co/wpQmxNf/Screen-Shot-2019-01-11-at-4-16-08-PM.png)
+![App Store Flutter Demo](https://i.ibb.co/vmCkHM1/ezgif-1-f762277ebc31.gif)
 
 ## Feature
 - Bloc Pattern
@@ -13,6 +13,7 @@ A starter kit for beginner learns with Bloc pattern, RxDart, sqflite, Fluro and 
 - Localization by using Flutter i18n plugin
 - Environment Config based on different project flavour (Development, Staging and Production)
 - Build pojo by using json_serializable
+- Update each list item instead of re-rendering whole list view when data set has changed on a list item
 
 ## Install
 
@@ -30,7 +31,7 @@ A starter kit for beginner learns with Bloc pattern, RxDart, sqflite, Fluro and 
 
 
 ## Useful Command
-Generate json serialize adn deserialize functions
+Generate json serialize and deserialize functions
 
 > flutter packages pub run build_runner build --delete-conflicting-outputs
 
