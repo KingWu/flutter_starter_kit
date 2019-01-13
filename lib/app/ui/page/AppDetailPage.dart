@@ -13,7 +13,6 @@ class AppDetailPage extends StatefulWidget {
   final String url;
   final String heroTag;
   final String titleTag;
-  AppContent _initAppContent;
 
   AppDetailPage({Key key, this.appId, this.title, this.url, this.heroTag, this.titleTag}) : super(key: key);
 
@@ -30,26 +29,21 @@ class AppDetailPage extends StatefulWidget {
   }
 
   @override
-  _AppDetailPageState createState() => _AppDetailPageState(appId, title, url, heroTag, titleTag);
+  _AppDetailPageState createState() => _AppDetailPageState();
 }
 
 
 class _AppDetailPageState extends State<AppDetailPage> {
 
-  final num appId;
-  final String title;
-  final String url;
-  final String heroTag;
-  final String titleTag;
   AppContent _initAppContent;
 
   AppDetailBloc appDetailBloc;
   Color greyColor = Color.fromARGB(255, 163, 163, 163);
 
-
-  _AppDetailPageState(this.appId, this.title, this.url, this.heroTag,
-      this.titleTag){
-    _initAppContent = AppContent.init(appId, title, url);
+  @override
+  void initState() {
+    super.initState();
+    _initAppContent = AppContent.init(widget.appId, widget.title, widget.url);
   }
 
   @override
@@ -123,7 +117,7 @@ class _AppDetailPageState extends State<AppDetailPage> {
           Navigator.pop(context);
         }
       });
-      appDetailBloc.loadDetail(appId.toString());
+      appDetailBloc.loadDetail(widget.appId.toString());
 
     }
   }
@@ -149,7 +143,7 @@ class _AppDetailPageState extends State<AppDetailPage> {
               width:  100,
               margin: EdgeInsets.only(right: 12),
               child: Hero(
-                  tag: heroTag,
+                  tag: widget.heroTag,
                   child: buildAppIcon(appContent.artworkUrl100)
               )
           ),
@@ -158,7 +152,7 @@ class _AppDetailPageState extends State<AppDetailPage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Hero(
-                  tag: titleTag,
+                  tag: widget.titleTag,
                   child: Text(
                     appContent.trackName,
                     overflow: TextOverflow.ellipsis,
