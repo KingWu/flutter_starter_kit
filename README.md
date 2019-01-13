@@ -14,6 +14,7 @@ A starter kit for beginner learns with Bloc pattern, RxDart, sqflite, Fluro and 
 - Environment Config based on different project flavour (Development, Staging and Production)
 - Build pojo by using json_serializable
 - Update each list item instead of re-rendering whole list view when data set has changed on a list item
+- Hero animation
 
 ## Install
 
