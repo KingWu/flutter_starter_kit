@@ -1,0 +1,5 @@
+#include "Pods/Target Support Files/Pods-Runner/Pods-Runner.debug.xcconfig"
+#include "Generated.xcconfig"
+
+APP_NAME=(Dev) Flutter Starter Kit
+BUNDLE_SUFFIX=.dev
