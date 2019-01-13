@@ -6,7 +6,7 @@ import 'package:flutter_starter_kit/app/model/core/AppProvider.dart';
 import 'package:flutter_starter_kit/app/model/pojo/AppContent.dart';
 import 'package:flutter_starter_kit/app/ui/page/AppDetailPage.dart';
 import 'package:flutter_starter_kit/generated/i18n.dart';
-import 'package:rect_getter/rect_getter.dart';
+import 'package:flutter_starter_kit/utility/widget/StreamListItem.dart';
 import 'package:smooth_star_rating/smooth_star_rating.dart';
 
 class HomePage extends StatefulWidget {
@@ -24,7 +24,7 @@ class _HomePageState extends State<HomePage> {
   final TextEditingController _searchBoxController = new TextEditingController();
   Color greyColor = Color.fromARGB(255, 163, 163, 163);
   var _keys = {};
-  var listViewKey = RectGetter.createGlobalKey();
+  var listViewKey = UniqueKey();
 
   @override
   void dispose() {
@@ -40,13 +40,7 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: buildSearchBar()
       ),
-      body: NotificationListener<ScrollUpdateNotification>(
-        onNotification: (notification) {
-          bloc.handleOnScroll(_getVisibleItem());
-          return true;
-        },
-        child: buildFeedList(),
-      )
+      body: buildFeedList()
     );
   }
 
@@ -116,53 +110,53 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  List<int> _getVisibleItem() {
-    var rect = RectGetter.getRectFromKey(listViewKey);
-    var _items = <int>[];
-    _keys.forEach((index, key) {
-      var itemRect = RectGetter.getRectFromKey(key);
-
-      if (itemRect != null && !(itemRect.top > rect.bottom || itemRect.bottom < rect.top)) _items.add(index);
-    });
-    return _items;
-  }
-
   Widget buildFeedList(){
     return StreamBuilder(
       stream: bloc.feedList,
       builder: (context, snapshot) {
         List<HomeListItem> feedList = snapshot.data;
-        return RectGetter(
-          key: listViewKey,
-          child: ListView.builder(
-              scrollDirection: Axis.vertical,
-              itemCount: null != feedList ? feedList.length : 0,
-              itemBuilder: (context, index) {
-                if(null == _keys[index]){
-                  _keys[index] = RectGetter.createGlobalKey();
-                }
+        return ListView.builder(
+            key: listViewKey,
+            scrollDirection: Axis.vertical,
+            itemCount: null != feedList ? feedList.length : 0,
+            itemBuilder: (context, index) {
+//              Log.info('index : $index');
+              HomeListItem listItem = feedList[index];
 
-                var key = _keys[index];
+              if(null == _keys[listItem.getId()]){
+                _keys[listItem.getId()] = ValueKey(listItem.getId());
+              }
 
-                HomeListItem listItem = feedList[index];
+              var key = _keys[listItem.getId()];
 
-                if(HomeListType.TYPE_FEATURE == listItem.type){
-                  return RectGetter(
-                    key: key,
-                    child: buildFeatureListItem(listItem),
-                  );
-                }
 
-                if(HomeListType.TYPE_FEATURE == feedList[0].type){
-                  index -= 1;
-                }
-
-                return RectGetter(
+              if(HomeListType.TYPE_FEATURE == listItem.type){
+                return Container(
                   key: key,
-                  child: buildTopAppListItem(listItem, index),
+                  child: buildFeatureListItem(listItem),
                 );
               }
-          ),
+
+              bool isFeatureListItemExist = HomeListType.TYPE_FEATURE == feedList[0].type;
+
+              return StreamListItem<HomeListItem, num>(
+                  key: key,
+                  initialData: listItem,
+                  stream: bloc.noticeItemUpdate,
+                  comparator: (HomeListItem listItem, num appId){
+                    if(HomeListType.TYPE_TOP_APP == listItem.type){
+                      TopAppListItem topAppListItem = listItem;
+                      return topAppListItem.entry.trackId == appId;
+                    }
+
+                    return false;
+                  },
+                  builder: (BuildContext context, HomeListItem listItem){
+//                    Log.info('Updated : $index');
+                    return buildTopAppListItem(listItem, index, isFeatureListItemExist);
+                  }
+              );
+            }
         );
       }
     );
@@ -245,7 +239,7 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget buildTopAppListItem(TopAppListItem listItem, int index){
+  Widget buildTopAppListItem(TopAppListItem listItem, int index, bool isFeatureListItemExist){
     AppContent app = listItem.entry;
     String name = app.trackName;
     String category = app.genres[0];
@@ -253,8 +247,16 @@ class _HomePageState extends State<HomePage> {
     num userCount = null != app.userRatingCount ? app.userRatingCount : 0;
 
     int order = index + 1;
+
+    if(isFeatureListItemExist){
+      order--;
+    }
+
     String heroTag = 'freeAppIcon_$order';
     String titleTag = 'freeAppTitle_$order';
+
+    // Trigger to load app detail info for visible item
+    bloc.loadDetailInfo(index);
 
     return Column(
       children: <Widget>[

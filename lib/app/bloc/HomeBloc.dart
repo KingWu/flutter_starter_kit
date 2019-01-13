@@ -7,14 +7,12 @@ import 'package:flutter_starter_kit/utility/log/Log.dart';
 import 'package:rxdart/rxdart.dart';
 
 class HomeBloc{
-  static const int FORCE_LOAD_NUMBER = 10;
-  static const int THRESHOLD_LOAD_ITEM = 3;
-
 
   final AppStoreApplication _application;
   final _searchText = BehaviorSubject<String>();
   final _feedList = BehaviorSubject<List<HomeListItem>>();
   final _isShowLoading = BehaviorSubject<bool>();
+  final _noticeItemUpdate = BehaviorSubject<num>();
   List<HomeListItem> appList;
 
   HomeBloc(this._application){
@@ -25,6 +23,8 @@ class HomeBloc{
   Stream<bool> get isShowLoading => _isShowLoading.stream;
   Stream<String> get searchText => _searchText.stream;
   Stream<List<HomeListItem>> get feedList => _feedList.stream;
+  Stream<num> get noticeItemUpdate => _noticeItemUpdate.stream;
+
 
   var loadedMap = {};
 
@@ -41,6 +41,7 @@ class HomeBloc{
     _searchText.close();
     _feedList.close();
     _isShowLoading.close();
+    _noticeItemUpdate.close();
   }
 
   void changeSearchText(String searchTxt){
@@ -71,22 +72,11 @@ class HomeBloc{
           }
           _feedList.add(appList);
           _isShowLoading.add(false);
-          _forceLoadListItem(FORCE_LOAD_NUMBER);
         },
         onError: (e, s){
           Log.info(e);
         });
     _compositeSubscription.add(subscription);
-  }
-
-  void handleOnScroll(List<int> visibleIndex){
-    if(visibleIndex.length > 0){
-      int lastIndex = visibleIndex[visibleIndex.length - 1];
-      int preShowLastIndex = lastIndex + THRESHOLD_LOAD_ITEM;
-      for(var index = visibleIndex[0] ; index <= preShowLastIndex ; index++ ){
-        _loadDetailInfo(index);
-      }
-    }
   }
 
   void _searchApps(String searchKey){
@@ -115,7 +105,7 @@ class HomeBloc{
     _compositeSubscription.add(subscription);
   }
 
-  void _loadDetailInfo(int index){
+  void loadDetailInfo(int index){
     if(appList.length == 0 || appList.length <= index){
       return;
     }
@@ -134,15 +124,9 @@ class HomeBloc{
       StreamSubscription subscription = _application.appStoreAPIRepository.getAppDetail(freeAppListItem.entry.trackId.toString())
           .listen((AppContent appContent){
         freeAppListItem.entry = appContent;
-        _feedList.add(appList);
+        _noticeItemUpdate.add(appContent.trackId);
       });
       _compositeSubscription.add(subscription);
-    }
-  }
-
-  void _forceLoadListItem(int number){
-    for(var i = 0 ; i < number; i++){
-      _loadDetailInfo(i);
     }
   }
 }
@@ -159,19 +143,35 @@ enum HomeListType {
   TYPE_TOP_APP
 }
 
-class HomeListItem {
+abstract class HomeListItem {
   HomeListType type;
 
   HomeListItem(this.type);
+
+  num getId();
 }
 
 class FeatureListItem extends HomeListItem{
   List<AppContent> entryList;
 
   FeatureListItem(this.entryList) : super(HomeListType.TYPE_FEATURE);
+
+  @override
+  num getId() {
+
+    if(entryList.length > 0){
+      return entryList[0].trackId;
+    }
+    return -1;
+  }
 }
 
 class TopAppListItem extends HomeListItem {
   AppContent entry;
   TopAppListItem(this.entry) : super(HomeListType.TYPE_TOP_APP);
+
+  @override
+  num getId() {
+    return entry.trackId;
+  }
 }
