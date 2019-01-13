@@ -9,6 +9,7 @@ A starter kit for beginner learns with Bloc pattern, RxDart, sqflite, Fluro and 
 - Navigate pages by [Fluro](https://github.com/theyakka/fluro)
 - Local cache by using [sqflite](https://github.com/tekartik/sqflite)
 - Restful api call by using [Dio](https://github.com/flutterchina/dio)
+- Database debugging (Android Only) by using [flutter_stetho](https://github.com/brianegan/flutter_stetho)
 - Loading Network Image
 - Localization by using Flutter i18n plugin
 - Environment Variable & Project Config (Like App Name, Bundle Id) based on different project flavour (Development, Staging & Production)

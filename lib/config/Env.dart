@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_starter_kit/app/model/core/AppComponent.dart';
 import 'package:flutter_starter_kit/app/model/core/AppStoreApplication.dart';
+import 'package:flutter_stetho/flutter_stetho.dart';
 
 enum EnvType {
   DEVELOPMENT,
@@ -29,6 +30,10 @@ class Env {
   }
 
   void _init() async{
+    if(EnvType.DEVELOPMENT == environmentType || EnvType.STAGING == environmentType){
+      Stetho.initialize();
+    }
+
     var application = AppStoreApplication();
     await application.onCreate();
     runApp(AppComponent(application));
