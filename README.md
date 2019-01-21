@@ -40,6 +40,8 @@ Generate json serialize and deserialize functions
 
 > flutter packages pub run build_runner build --delete-conflicting-outputs
 
+## Known Issues
+- [Unable to launch app on ios simulator with different flavours](https://github.com/flutter/flutter/issues/21335)
 
 ## Reference
 
