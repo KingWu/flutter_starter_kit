@@ -43,6 +43,10 @@ Generate json serialize and deserialize functions
 ## Known Issues
 - [Unable to launch app on ios simulator with different flavours](https://github.com/flutter/flutter/issues/21335)
 
+## Migration Guide
+- If you wanna to use this project as your project' base, please read [migration guide](https://github.com/KingWu/flutter_starter_kit/wiki/Migration-Guide)
+
+
 ## Reference
 
 #### From other platform?
