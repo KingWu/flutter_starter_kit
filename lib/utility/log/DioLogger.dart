@@ -2,7 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter_starter_kit/utility/log/Log.dart';
 
 class DioLogger{
-  static void onSend(String tag, Options options){
+  static void onSend(String tag, RequestOptions options){
     Log.info('$tag - Request Path : [${options.method}] ${options.baseUrl}${options.path}');
     Log.info('$tag - Request Data : ${options.data.toString()}');
   }

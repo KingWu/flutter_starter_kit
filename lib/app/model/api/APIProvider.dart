@@ -20,29 +20,28 @@ class APIProvider{
   Dio _dio;
 
   APIProvider(){
-    Options dioOptions = Options()
+    BaseOptions dioOptions = BaseOptions()
       ..baseUrl = APIProvider._baseUrl;
 
     _dio = Dio(dioOptions);
 
     if(EnvType.DEVELOPMENT == Env.value.environmentType || EnvType.STAGING == Env.value.environmentType){
-      _dio.interceptor.request.onSend = (Options options) async{
-        DioLogger.onSend(TAG, options);
-        return options;
-      };
 
-      _dio.interceptor.response.onSuccess=(Response response){
-        DioLogger.onSuccess(TAG, response);
-        return response;
-      };
-
-      _dio.interceptor.response.onError = (DioError error){
-        DioLogger.onError(TAG, error);
-        return error;
-      };
+      _dio.interceptors.add(InterceptorsWrapper(
+          onRequest:(RequestOptions options) async{
+            DioLogger.onSend(TAG, options);
+            return options;
+          },
+          onResponse: (Response response){
+            DioLogger.onSuccess(TAG, response);
+            return response;
+          },
+          onError: (DioError error){
+            DioLogger.onError(TAG, error);
+            return error;
+          }
+      ));
     }
-
-
   }
 
   Future<TopAppResponse> getTopFreeApp(int limit) async{
@@ -58,7 +57,7 @@ class APIProvider{
   }
 
   Future<LookupResponse> getAppDetail(String id) async{
-    Response response = await _dio.get(APIProvider._APP_DETAIL_API, data:{'id':id});
+    Response response = await _dio.get(APIProvider._APP_DETAIL_API, queryParameters:{'id':id});
     throwIfNoSuccess(response);
     return LookupResponse.fromJson(jsonDecode(response.data));
   }
