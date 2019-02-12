@@ -14,8 +14,11 @@ class DioLogger{
   }
 
   static void onError(String tag, DioError error){
-    Log.info('$tag - Response Path : [${error.response.request.method}] ${error.response.request.baseUrl}${error.response.request.path} Request Data : ${error.response.request.data.toString()}');
-    Log.info('$tag - Response statusCode : ${error.response.statusCode}');
-    Log.info('$tag - Response data : ${error.response.data.toString()}');
+    if(null != error.response){
+      Log.info('$tag - Error Path : [${error.response.request.method}] ${error.response.request.baseUrl}${error.response.request.path} Request Data : ${error.response.request.data.toString()}');
+      Log.info('$tag - Error statusCode : ${error.response.statusCode}');
+      Log.info('$tag - Error data : ${null != error.response.data ? error.response.data.toString() : ''}');
+    }
+    Log.info('$tag - Error Message : ${error.message}');
   }
 }
