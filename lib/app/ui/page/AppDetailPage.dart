@@ -240,10 +240,10 @@ class _AppDetailPageState extends State<AppDetailPage> {
         itemCount: length,
         scrollDirection: Axis.horizontal,
         shrinkWrap: true,
-        separatorBuilder: (BuildContext context int index){
+        separatorBuilder: (BuildContext context, int index){
           return Container(width: 12);
         },
-        itemBuilder: (BuildContext context int index){
+        itemBuilder: (BuildContext context, int index){
           double left = 0 == index ? 20 : 0;
           double right = length - 1 == index ? 20 : 0;
           String url = appContent.screenshotUrls[index];
