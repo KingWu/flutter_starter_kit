@@ -225,7 +225,7 @@ class _HomePageState extends State<HomePage> {
                                 borderRadius: BorderRadius.circular(16.0),
                                 child: CachedNetworkImage(
                                     imageUrl: app.artworkUrl100,
-                                    errorWidget: new Icon(Icons.error),
+                                    errorWidget: (context, url, error) => new Icon(Icons.error),
                                     fadeOutDuration: new Duration(seconds: 1),
                                     fadeInDuration: new Duration(seconds: 1)
                                 )
@@ -376,7 +376,7 @@ class _HomePageState extends State<HomePage> {
         borderRadius: radius,
         child: CachedNetworkImage(
             imageUrl: iconUrl,
-            errorWidget: new Icon(Icons.error),
+            errorWidget: (context, url, error) => new Icon(Icons.error),
             fadeOutDuration: new Duration(seconds: 1),
             fadeInDuration: new Duration(seconds: 1)
         )

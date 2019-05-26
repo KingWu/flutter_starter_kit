@@ -22,26 +22,28 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   fluro: 1.4.0
-  dio: 2.0.1
+  dio: 2.1.5
   logging: 0.11.3+2
-  json_annotation: 2.0.0
-  sprintf: 4.0.0
-  rxdart: 0.20.0
-  cached_network_image: 0.5.1
-  sqflite: 0.13.0+1
-  smooth_star_rating: 1.0.1
+  json_annotation: 2.4.0
+  sprintf: 4.0.2
+  rxdart: 0.22.0
+  cached_network_image: 0.8.0
+  sqflite: 1.1.5
+  smooth_star_rating: 1.0.2
   flutter_stetho: 0.2.2
+  analyzer: 0.33.3
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: 0.1.2
 
 dev_dependencies:
-  intl_translation: 0.17.1
   flutter_test:
     sdk: flutter
   build_runner: 1.0.0
-  json_serializable: 2.0.0
+  json_serializable: 3.0.0
+  gen_lang: 0.1.1
+  lang_table: 0.1.0
 
 
 # For information on the generic Dart part of this file, see the
