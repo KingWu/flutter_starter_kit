@@ -1,0 +1,9 @@
+{
+	"hello":"Hello",
+	"title":"Hello world App",
+	"dialogLoading":"読み込み中 ...",
+	"homeEmptyList":"結果なし",
+	"homeSearchHint":"検索 ...",
+	"homeRecommend":"おすすめ",
+	"detailRate":"コメント"
+}

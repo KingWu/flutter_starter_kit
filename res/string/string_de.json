@@ -1,0 +1,9 @@
+{
+	"hello":"Hello",
+	"title":"Hello world App",
+	"dialogLoading":"Wird geladen ...",
+	"homeEmptyList":"Keine Ergebnisse",
+	"homeSearchHint":"Suche ...",
+	"homeRecommend":"Empfehlen",
+	"detailRate":"Bemerkungen"
+}

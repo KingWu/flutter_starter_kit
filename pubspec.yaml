@@ -43,7 +43,7 @@ dev_dependencies:
   build_runner: 1.0.0
   json_serializable: 3.0.0
   gen_lang: 0.1.1
-  lang_table: 0.1.0
+  lang_table: 0.1.1
 
 
 # For information on the generic Dart part of this file, see the

@@ -1,9 +1,0 @@
-{
-  "title": "Hello world App",
-  "hello": "Hello",
-  "homeSearchHint": "Search ...",
-  "homeRecommend": "Recommend",
-  "dialogLoading": "Loading ...",
-  "detailRate": "Comments",
-  "homeEmptyList": "No results"
-}
