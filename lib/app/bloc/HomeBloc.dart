@@ -30,7 +30,7 @@ class HomeBloc{
 
   void _init(){
     // Debounce search text
-    _searchText.debounce(const Duration(milliseconds: 500))
+    _searchText.debounceTime(const Duration(milliseconds: 500))
     .listen((String searchText){
       _searchApps(searchText);
     });
