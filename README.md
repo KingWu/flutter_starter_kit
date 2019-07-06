@@ -61,6 +61,8 @@ flutter packages pub run gen_lang:generate
 
 ## Reference
 
+- [My Flutter Learning Path](https://medium.com/@kingwu/flutter-learning-path-d6b3b0235799)
+
 #### From other platform?
 - [Flutter for Android developers](https://flutter.io/docs/get-started/flutter-for/android-devs)
 - [Flutter for iOS developers](https://flutter.io/docs/get-started/flutter-for/ios-devs)
@@ -89,3 +91,7 @@ flutter packages pub run gen_lang:generate
 #### Flavouring
 - [Flavoring Flutter](https://medium.com/@salvatoregiordanoo/flavoring-flutter-392aaa875f36)
 - [Creating flavors of a Flutter app (Flutter & Android setup)](http://cogitas.net/creating-flavors-of-a-flutter-app/)
+
+#### Advance Topic
+- [The Mahogany Staircase - Flutter's Layered Design](https://www.youtube.com/watch?time_continue=1&v=dkyY9WCGMi0)
+- [Flutter's Rendering Pipeline](https://www.youtube.com/watch?v=UUfXWzp0-DU)
