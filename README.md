@@ -35,6 +35,25 @@ A starter kit for beginner learns with Bloc pattern, RxDart, sqflite, Fluro and 
 
 
 ## Useful Command
+
+### Run flutter_starter_kit
+
+For development,
+
+```
+flutter run --flavor development -t lib/config/main_development.dart
+```
+
+For staging,
+```
+flutter run --flavor staging -t lib/config/main_staging.dart
+```
+
+For production,
+```
+flutter run --flavor production -t lib/config/main_production.dart
+```
+
 ### Generate json serialize and deserialize functions
 
 ```
