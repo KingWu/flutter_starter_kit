@@ -75,6 +75,7 @@ class HomeBloc{
         },
         onError: (e, s){
           Log.info(e);
+          _isShowLoading.add(false);
         });
     _compositeSubscription.add(subscription);
   }

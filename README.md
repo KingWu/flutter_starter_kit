@@ -22,6 +22,9 @@ A starter kit for beginner learns with Bloc pattern, RxDart, sqflite, Fluro and 
 ## Install
 
 1. Follow flutter [official setup guide](https://flutter.io/docs/get-started/install) to set up flutter environment
+2. Download [flutter version 1.17.3](https://flutter.dev/docs/development/tools/sdk/releases)
+
+Remark: This starter kit support Flutter version - 1.17.3. It is because Flutter may have breaking change on latest version.
 
 ## Run Config
 1. Click 'Edit Configuration'
