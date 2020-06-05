@@ -8,17 +8,18 @@ part of 'Attribute.dart';
 
 Attribute _$AttributeFromJson(Map<String, dynamic> json) {
   return Attribute(
-      json['height'] as String,
-      json['amount'] as String,
-      json['currency'] as String,
-      json['term'] as String,
-      json['rel'] as String,
-      json['type'] as String,
-      json['href'] as String,
-      json['im:id'] as String,
-      json['im:bundleId'] as String,
-      json['scheme'] as String,
-      json['label'] as String);
+    json['height'] as String,
+    json['amount'] as String,
+    json['currency'] as String,
+    json['term'] as String,
+    json['rel'] as String,
+    json['type'] as String,
+    json['href'] as String,
+    json['im:id'] as String,
+    json['im:bundleId'] as String,
+    json['scheme'] as String,
+    json['label'] as String,
+  );
 }
 
 Map<String, dynamic> _$AttributeToJson(Attribute instance) => <String, dynamic>{
@@ -32,5 +33,5 @@ Map<String, dynamic> _$AttributeToJson(Attribute instance) => <String, dynamic>{
       'im:id': instance.imId,
       'im:bundleId': instance.imBundleId,
       'scheme': instance.scheme,
-      'label': instance.label
+      'label': instance.label,
     };

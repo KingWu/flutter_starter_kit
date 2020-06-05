@@ -17,7 +17,7 @@ class Entry{
   @JsonKey(name: 'im:contentType')
   Property imContentType;
   Property title;
-  Property link;
+  List<Property> link;
   Property id;
   @JsonKey(name: 'im:artist')
   Property imArtist;
