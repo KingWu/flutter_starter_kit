@@ -96,7 +96,7 @@ class AppContent{
     double price = double.parse(entry.imPrice.attributes.amount);
     String currency = entry.imPrice.attributes.currency;
     num primaryGenreId = num.parse(entry.category.attributes.imId); // number
-    String trackViewUrl = entry.link.attributes.href;
+    String trackViewUrl = entry.link.isNotEmpty ? entry.link[0].attributes.href : null;
     String artistName = entry.imArtist.label;
     String artistViewUrl = null != entry.imArtist.attributes ? entry.imArtist.attributes.href : null;
     List<String> genres = [entry.category.attributes.label];

@@ -11,7 +11,7 @@ maintainer: King Wu (@kw101)
 # Both the version and the builder number may be overridden in flutter
 # build by specifying --build-name and --build-number, respectively.
 # Read more about versioning at semver.org.
-version: 1.3.0
+version: 1.4.1
 
 environment:
   sdk: ">=2.0.0-dev.68.0 <3.0.0"
@@ -21,29 +21,30 @@ dependencies:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
-  fluro: 1.4.0
-  dio: 2.1.5
-  logging: 0.11.3+2
-  json_annotation: 2.4.0
+  fluro: 1.6.3
+  dio: 3.0.9
+  logging: 0.11.4
+  json_annotation: 3.0.1
   sprintf: 4.0.2
-  rxdart: 0.22.0
-  cached_network_image: 0.8.0
-  sqflite: 1.1.5
-  smooth_star_rating: 1.0.2
-  flutter_stetho: 0.2.2
-  analyzer: 0.33.3
+  rxdart: 0.22.6
+  cached_network_image: 2.0.0
+  sqflite: 1.3.0+2
+  smooth_star_rating: 1.1.1
+  flutter_stetho: 0.5.2
+  analyzer: 0.39.10
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: 0.1.2
+  cupertino_icons: 0.1.3
+  flutter_platform_widgets: 0.50.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  build_runner: 1.0.0
-  json_serializable: 3.0.0
-  gen_lang: 0.1.1
-  lang_table: 0.1.1
+  build_runner: 1.10.0
+  json_serializable: 3.3.0
+  gen_lang: 0.1.3
+  lang_table: 0.2.0
 
 
 # For information on the generic Dart part of this file, see the

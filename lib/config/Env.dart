@@ -30,6 +30,8 @@ class Env {
   }
 
   void _init() async{
+    WidgetsFlutterBinding.ensureInitialized();
+
     if(EnvType.DEVELOPMENT == environmentType || EnvType.STAGING == environmentType){
       Stetho.initialize();
     }
