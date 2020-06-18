@@ -26,6 +26,7 @@ A starter kit for beginner learns with Bloc pattern, RxDart, sqflite, Fluro and 
 
 Remark: This starter kit support Flutter version - 1.17.3. It is because Flutter may have breaking change on latest version.
 
+
 ## Run Config
 1. Click 'Edit Configuration'
 2. Create different run configs for flavours
