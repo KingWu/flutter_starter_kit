@@ -117,3 +117,7 @@ flutter packages pub run gen_lang:generate
 #### Advance Topic
 - [The Mahogany Staircase - Flutter's Layered Design](https://www.youtube.com/watch?time_continue=1&v=dkyY9WCGMi0)
 - [Flutter's Rendering Pipeline](https://www.youtube.com/watch?v=UUfXWzp0-DU)
+
+### Powered By 
+[Plaker Lab 創玩坊](https://plakerlab.com/)
+[Wenjetso 搵著數](https://www.wenjetso.com/zh_HK/)
