@@ -119,5 +119,5 @@ flutter packages pub run gen_lang:generate
 - [Flutter's Rendering Pipeline](https://www.youtube.com/watch?v=UUfXWzp0-DU)
 
 ### Powered By 
-[Plaker Lab 創玩坊](https://plakerlab.com/)
-[Wenjetso 搵著數](https://www.wenjetso.com/zh_HK/)
+- [Plaker Lab 創玩坊](https://www.plakerlab.com/)
+- [Wenjetso 搵著數](https://www.wenjetso.com/zh_HK/)
